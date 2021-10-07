@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.page {
+    height: 100vh;
+}
+
+.header {
+    background: #004ed6;
+    height: 80px;
+    width: 100%;
+    position: fixed;
+}
+
+.aside-main-container {
+    display: flex;
+}
+
+.aside {
+    background: #f91155;
+    width: 200px;
+    height: 100vh;
+}
+
+.main {
+    background: #3ac267;
+    width: 600px;
+    height: 100vh;
+    margin: auto;
+}
+
+.footer {
+    background: #001a34;
+    width: 100%;
+    min-height: 100px;
+    bottom: 0px;
+    position: fixed;
+}

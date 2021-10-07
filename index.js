@@ -397,3 +397,186 @@
 
 // console.log( usersMapped[0].id ) ;
 // console.log( usersMapped[0].fullName ) ;
+
+
+//Отсортировать пользователей по возрасту
+// let vasya = { name: "Вася", age: 25 };
+// let petya = { name: "Петя", age: 30 };
+// let masha = { name: "Маша", age: 28 };
+
+// let arr = [ vasya, petya, masha ];
+
+// function sortByAge(arr) {
+//     return arr.sort((a,b) => a.age > b.age ? 1 : -1);
+// }
+
+// console.log(arr);
+// console.log(sortByAge(arr));
+
+
+//Перемешайте массив
+// function shuffle(array) {
+//     на подумать
+// }
+
+
+// Получить средний возраст
+// function getAverageAge(users) {
+//     return users.reduce((average, user) => average + user.age, 0) / users.length;
+// }
+
+
+// let vasya = { name: "Вася", age: 25 };
+// let petya = { name: "Петя", age: 30 };
+// let masha = { name: "Маша", age: 29 };
+
+// let arr = [ vasya, petya, masha ];
+
+
+
+// console.log( getAverageAge(arr) );
+
+
+
+
+//Оставить уникальные элементы массива
+// function unique(arr) {
+//     const newString = [];
+//     arr.forEach((string) => {
+//         if (!newString.includes(string)) {
+//             newString.push(string);
+//         }
+//     });
+//     return newString;
+//   }
+  
+//   let strings = ["кришна", "кришна", "харе", "харе",
+//     "харе", "харе", "кришна", "кришна", ":-O"
+//   ];
+  
+//   console.log( unique(strings) ); // кришна, харе, :-O
+
+// function unique(arr) {
+//     const newString = {};
+//     arr.forEach(string => {
+//         if (!newString[string]) {
+//             newString[string] = true;
+//         }
+//     });
+//     return Object.keys(newString);
+//   }
+  
+//   let strings = ["кришна", "кришна", "харе", "харе",
+//     "харе", "харе", "кришна", "кришна", ":-O"
+//   ];
+  
+//   console.log( unique(strings) ); // кришна, харе, :-O
+
+// function unique(arr) {
+//     const newString = {};
+//     return arr.filter(string => {
+//         if (!newString[string]) {
+//             newString[string] = true;
+//             return true;
+//         } 
+//         return false;
+//     });
+//   }
+  
+//   let strings = ["кришна", "кришна", "харе", "харе",
+//     "харе", "харе", "кришна", "кришна", ":-O"
+//   ];
+  
+//   console.log( unique(strings) ); // кришна, харе, :-O
+
+
+
+
+//MAP и SET
+//Фильтрация уникальных элементов массива
+// function unique(arr) {
+//     return Array.from(new Set(arr));
+//   }
+  
+//   let values = ["Hare", "Krishna", "Hare", "Krishna",
+//     "Krishna", "Krishna", "Hare", "Hare", ":-O"
+//   ];
+  
+//   console.log( unique(values) ); // Hare,Krishna,:-O
+
+
+
+//Отфильтруйте анаграммы
+// function aclean(arr) {
+//     let map = new Map();
+  
+//     for (let word of arr) {
+//       // разбиваем слово на буквы, сортируем и объединяем снова в строку
+//       let sorted = word.toLowerCase().split("").sort().join(""); // (*)
+//       map.set(sorted, word);
+//     }
+  
+//     return Array.from(map.values());
+//   }
+  
+//   let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
+  
+//   console.log( aclean(arr) );
+
+// const items = document.querySelectorAll('.item');
+
+// items.forEach((item) => {
+//     item.addEventListener('click', (event) => {
+//         console.log(event.target.innerHTML);
+//     });
+// });
+
+// let one = getNodeList[0];
+// one.onclick = function() {
+//     console.log(one.innerHTML);
+// }
+
+// let two = getNodeList[1];
+// two.onclick = function() {
+//     console.log(two.innerHTML);
+// }
+
+// let three = getNodeList[2];
+// three.onclick = function() {
+//     console.log(three.innerHTML);
+// }
+
+//можно было сделать через document.querySelector('.item:nth-child(2))
+
+
+
+//Делегирование(ивент на родителя, но прослушивание детей)
+// const items = document.querySelector('.list');
+ 
+// items.addEventListener('click', (event) => {
+//         console.log(event.target.innerHTML);
+//     });
+
+
+// const item = document.getElementById('item');
+// const link = document.getElementById('link');
+
+
+// item.addEventListener('click', (event) => {
+//     console.log('item');
+// });
+
+// link.addEventListener('click', (event) => {
+//     event.stopPropagation();
+//     console.log('link');
+// });
+
+// localStorage.setItem('privet', 'mir');
+// const localeItem = localStorage.getItem('privet');
+// console.log(localeItem);
+
+// const input = document.querySelector('input');
+// input.value = localStorage.getItem('inputKey');
+// input.addEventListener('change', (event) => {
+//     localStorage.setItem('inputKey', event.target.value);
+// });
