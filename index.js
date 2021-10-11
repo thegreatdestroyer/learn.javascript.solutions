@@ -581,13 +581,51 @@
 //     localStorage.setItem('inputKey', event.target.value);
 // });
 
-const input = document.querySelector('input');
-const button = document.querySelector('button');
+// const input = document.querySelector('input');
+// const button = document.querySelector('button');
 
 
-input.addEventListener('input', (event) => {
-    if (!/^[a-z]+$/.test(event.target.value)) {
-        button.disabled = true;
-        console.log('knopke ne rabotaet');
+// input.addEventListener('input', (event) => {
+//     if (!/^[a-z]+$/.test(event.target.value)) {
+//         button.disabled = true;
+//         console.log('knopke ne rabotaet');
+//     }
+// });
+
+
+
+//Деструктурирующее присваивание
+// //Задача 1
+// let user = {
+//   name: 'John', 
+//   years: 30
+// };
+
+// let { name, years: age, isAdmin = false } = user;
+
+
+// console.log( name );
+// console.log(age);
+// console.log( isAdmin );
+
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+
+function topSalary(salaries) {
+
+    let maxSalary = 0;
+    let maxName = null;
+
+    for (const [name, salary] of Object.entries(salaries)) {
+        if (salary > maxSalary) {
+          maxSalary = salary;
+          maxName = name;
+        }
     }
-});
+    return maxName;
+}
+
+console.log(topSalary(salaries));
