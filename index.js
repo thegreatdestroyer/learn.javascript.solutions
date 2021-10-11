@@ -580,3 +580,14 @@
 // input.addEventListener('change', (event) => {
 //     localStorage.setItem('inputKey', event.target.value);
 // });
+
+const input = document.querySelector('input');
+const button = document.querySelector('button');
+
+
+input.addEventListener('input', (event) => {
+    if (!/^[a-z]+$/.test(event.target.value)) {
+        button.disabled = true;
+        console.log('knopke ne rabotaet');
+    }
+});
