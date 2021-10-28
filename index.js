@@ -608,24 +608,120 @@
 // console.log(age);
 // console.log( isAdmin );
 
-let salaries = {
-  "John": 100,
-  "Pete": 300,
-  "Mary": 250
-};
 
-function topSalary(salaries) {
+// Вторая задача
+// let salaries = {
+//   "John": 100,
+//   "Pete": 300,
+//   "Mary": 250
+// };
 
-    let maxSalary = 0;
-    let maxName = null;
+// function topSalary(salaries) {
 
-    for (const [name, salary] of Object.entries(salaries)) {
-        if (salary > maxSalary) {
-          maxSalary = salary;
-          maxName = name;
+//     let maxSalary = 0;
+//     let maxName = null;
+
+//     for (const [name, salary] of Object.entries(salaries)) {
+//         if (salary > maxSalary) {
+//           maxSalary = salary;
+//           maxName = name;
+//         }
+//     }
+//     return maxName;
+// }
+
+// console.log(topSalary(salaries));
+
+
+
+//ГЛУБОКИЕ КОПИРОВАНИЯ
+ 
+// const o = {a: 1, b: {c: 2, d: 3}};
+
+// const copyObject = (obj) => {
+//   return Object.entries(obj).reduce((acc, item) => {
+//       // acc = {}
+//       // ['a', 1]
+//       let [key, value] = item;
+//       if (typeof(value) === 'Object') {
+//           value = copyObject(value)
+//       }
+//       return acc[key] = value;
+//   }, {})
+// }
+
+// const e = copyObject(o);
+// console.log(e);
+
+// const arr = [1, 2, [3, 4, [5, 6], 7], [8,9]]; //[1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+// const copyArray = (arr) => {
+//     return arr.reduce((acc, item) => {
+
+//       if(Array.isArray(item)) {
+//         acc.push(...copyArray(item));
+//       } else if(typeof(item) === 'number') {
+//         acc.push(item);
+//       }
+//         return acc;
+//     }, []);
+// }
+
+// const d = copyArray(arr);
+// console.log(d);
+
+
+//ПЕРЕСЕЧЕНИЯ
+// * Описание задачи: Напишите функцию, которая создаст массив из уникальных значений, которые есть в каждом из предоставленных массивов.
+//   * Ожидаемый результат: ([1, 2], [2, 3]) => [2]
+//   * Сложность задачи: 4 of 5
+//   * @param {?} arrays - Массив примитивных значений
+//   * @returns {Array}
+
+
+const intersection = (...arrays) => {
+    // const intersected = arrays[0].filter((item) => { 
+    //   if (arrays[1].includes(item)) {
+    //     return item;
+    //   } 
+    // });
+
+    const intersected = [];
+
+    for (let i = 0; i < arrays[0].length; i++) {
+      for (let j = 0; j < arrays[1].length; j++ ) {
+        if (arrays[0][i] === arrays[1][j]) {
+          intersected.push(arrays[0][i]);
         }
+      }
     }
-    return maxName;
-}
 
-console.log(topSalary(salaries));
+      if (arrays.length > 2) {
+        intersection(intersected, ...arrays.splice(2, arrays.length));
+      }
+      
+      const arrWithDeletedDuplicates = [];
+
+      for (let i = 0; i < intersected.length; i++) {
+          if (arrWithDeletedDuplicates.indexOf(intersected[i]) === -1) {
+            arrWithDeletedDuplicates.push(intersected[i])
+          }
+      }
+
+
+      return arrWithDeletedDuplicates;
+    }
+
+
+const arr1 = [1, 2];
+const arr2 = [2, 3];
+const arr3 = ['a', 'b'];
+const arr4 = ['b', 'c'];
+const arr5 = ['b', 'e', 'c'];
+const arr6 = ['b', 'b', 'e'];
+const arr7 = ['b', 'c', 'e'];
+const arr8 = ['b', 'e', 'c'];
+
+console.log(intersection(arr1, arr2)) // [2]
+console.log(intersection(arr3, arr4, arr5)) // ['b']
+console.log(intersection(arr6, arr7, arr8)) // ['b', 'e']
